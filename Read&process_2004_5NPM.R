@@ -4,7 +4,10 @@ rm(list = ls())
 # load in data
 product_data<- read.csv("BOP_extract_Copy.csv",header = TRUE)
 
-# remove out of scope products
+#####################################
+# Identify HFSS products in scope under PHE calorie and sugar reduction or SDIL
+
+# remove out of scope product categories
 product_data <- subset(product_data, Category!= "Drinks-Alcoholic")
 product_data <- subset(product_data, Category!= "Oils")
 product_data <- subset(product_data, Category!= "Fruit and vegetables")
@@ -43,6 +46,7 @@ drinks045 <- within(drinks045, rm(add_sug, SDIL))
 product_data <- rbind (foods045, drinks045)
 
 #####################################
+
 # code fruit and veg columns NA as 0
 product_data$Fruit <- replace(product_data$Fruit, is.na(product_data$Fruit),0)
 product_data$Veg <- replace (product_data$Veg, is.na(product_data$Veg),0)
@@ -51,6 +55,7 @@ product_data$Veg <- replace (product_data$Veg, is.na(product_data$Veg),0)
 product_data$KJ <- product_data$KCALS*4.184
 
 #####################################
+# Calculate A points
 
 # allocate A points for calories (KJ)
 # create new column
@@ -151,7 +156,7 @@ product_data$A_NA. <- ifelse(product_data$NA. >= 900,10,
 product_data$A_TOTAL <- product_data$A_KJ + product_data$A_satF +product_data$A_sug + product_data$A_NA.
 
 ##############################
-# C points (positive nutrients)
+# calculate C points (positive nutrients)
 
 # calculate total fruit, veg and nut %
 
@@ -244,26 +249,3 @@ unclassified045 <- subset (product_data, product_data$PASS == "Unclassified")
 write.csv(product_data, file = "20045NPM.csv")
 
 ##############################
-
-
-# recode YES and No by year of NPM
-product_data$PASS[product_data$PASS == "Yes"] <- "Yes_045"
-product_data$PASS[product_data$PASS == "No"] <- "No_045"
-product_data18$PASS[product_data18$PASS == "Yes"] <- "Yes_18"
-product_data18$PASS[product_data18$PASS == "No"] <- "No_18"
-
-# produce contingency table for pass Y/N by model year
-tbl4 <- table(product_data$PASS, product_data18$PASS)
-tbl4
-# perform chi-square test
-chisq.test(tbl4)
-
-# perform chi-squared at category level
-Cereal <- subset(product_data, product_data$Category == "Frozen Foods")
-Cereal18 <- subset(product_data18, product_data18$Category == "Frozen Foods")
-
-tbl5 <-table(Cereal$PASS, Cereal18$PASS)
-tbl5
-chisq.test(tbl5)
-
-

@@ -167,16 +167,16 @@ product_data18 <- rbind (Foods, drinks)
 
 # allocate A points for Free sugars
 product_data18$A_FSug <- NA
-product_data18$A_FSug <- ifelse(product_data18$FSug >= 9.3,10,
-                        ifelse(product_data18$FSug >= 8.3,9,
-                               ifelse(product_data18$FSug >= 7.4, 8,
-                                      ifelse(product_data18$FSug >= 6.5,7,
-                                             ifelse(product_data18$FSug >= 5.6,6,
-                                                    ifelse(product_data18$FSug >=4.6,5,
-                                                           ifelse(product_data18$FSug >= 3.7,4,
-                                                                  ifelse(product_data18$FSug >= 2.8,3,
-                                                                         ifelse(product_data18$FSug >= 1.9,2,
-                                                                                ifelse(product_data18$FSug >= 0.9,1,0))))))))))
+product_data18$A_FSug <- ifelse(product_data18$FSug > 9.3,10,
+                        ifelse(product_data18$FSug > 8.3,9,
+                               ifelse(product_data18$FSug > 7.4, 8,
+                                      ifelse(product_data18$FSug > 6.5,7,
+                                             ifelse(product_data18$FSug > 5.6,6,
+                                                    ifelse(product_data18$FSug > 4.6,5,
+                                                           ifelse(product_data18$FSug > 3.7,4,
+                                                                  ifelse(product_data18$FSug > 2.8,3,
+                                                                         ifelse(product_data18$FSug > 1.9,2,
+                                                                                ifelse(product_data18$FSug > 0.9,1,0))))))))))
 
 ########################################
 # allocate A points for calories (kJ)
@@ -184,16 +184,16 @@ product_data18$A_FSug <- ifelse(product_data18$FSug >= 9.3,10,
 product_data18$KJ <- product_data18$KCALS*4.184
 # create new column
 product_data18$A_KJ <- NA
-product_data18$A_KJ <- ifelse(product_data18$KJ >= 3150,10,
-                                ifelse(product_data18$KJ >=2835,9,
-                                       ifelse(product_data18$KJ >= 2520,8,
-                                              ifelse(product_data18$KJ >= 2205,7,
-                                                     ifelse(product_data18$KJ >= 1890,6,
-                                                            ifelse(product_data18$KJ >= 1575,5,
-                                                                   ifelse(product_data18$KJ >= 1260,4,
-                                                                          ifelse(product_data18$KJ >= 945,3,
-                                                                                 ifelse(product_data18$KJ >= 630,2,
-                                                                                        ifelse(product_data18$KJ >= 315,1,0)
+product_data18$A_KJ <- ifelse(product_data18$KJ > 3150,10,
+                                ifelse(product_data18$KJ > 2835,9,
+                                       ifelse(product_data18$KJ > 2520,8,
+                                              ifelse(product_data18$KJ > 2205,7,
+                                                     ifelse(product_data18$KJ > 1890,6,
+                                                            ifelse(product_data18$KJ > 1575,5,
+                                                                   ifelse(product_data18$KJ > 1260,4,
+                                                                          ifelse(product_data18$KJ > 945,3,
+                                                                                 ifelse(product_data18$KJ > 630,2,
+                                                                                        ifelse(product_data18$KJ > 315,1,0)
                                                                                  )
                                                                           )
                                                                    )
@@ -209,16 +209,16 @@ product_data18$A_KJ <- ifelse(product_data18$KJ >= 3150,10,
 # allocate A points for saturated fat
 # create new column
 product_data18$A_satF <- NA
-product_data18$A_satF <- ifelse(product_data18$SATFOD >= 9.4,10,
-                                ifelse(product_data18$SATFOD >=8.4,9,
-                                       ifelse(product_data18$SATFOD >= 7.5,8,
-                                              ifelse(product_data18$SATFOD >= 6.6,7,
-                                                     ifelse(product_data18$SATFOD >=5.6,6,
-                                                            ifelse(product_data18$SATFOD >=4.7,5,
-                                                                   ifelse(product_data18$SATFOD >=3.7,4,
-                                                                          ifelse(product_data18$SATFOD >=2.8,3,
-                                                                                 ifelse(product_data18$SATFOD >=1.9,2,
-                                                                                        ifelse(product_data18$SATFOD >=0.9,1,0)
+product_data18$A_satF <- ifelse(product_data18$SATFOD > 9.4,10,
+                                ifelse(product_data18$SATFOD > 8.4,9,
+                                       ifelse(product_data18$SATFOD > 7.5,8,
+                                              ifelse(product_data18$SATFOD > 6.6,7,
+                                                     ifelse(product_data18$SATFOD > 5.6,6,
+                                                            ifelse(product_data18$SATFOD > 4.7,5,
+                                                                   ifelse(product_data18$SATFOD > 3.7,4,
+                                                                          ifelse(product_data18$SATFOD > 2.8,3,
+                                                                                 ifelse(product_data18$SATFOD > 1.9,2,
+                                                                                        ifelse(product_data18$SATFOD > 0.9,1,0)
                                                                                  )
                                                                           )
                                                                    )
@@ -240,16 +240,16 @@ product_data18$salt <- product_data18$NA.g * 2.5
 # allocate A points for sodium (NA)
 # create new column
 product_data18$A_salt. <- NA
-product_data18$A_salt. <- ifelse(product_data18$salt >= 2.3,10,
-                             ifelse(product_data18$salt >= 2,9,
-                                    ifelse(product_data18$salt >= 1.8,8,
-                                           ifelse(product_data18$salt >= 1.6,7,
-                                                  ifelse(product_data18$salt >= 1.4,6,
-                                                         ifelse(product_data18$salt >= 1.1,5,
-                                                                ifelse(product_data18$salt >= 0.9,4,
-                                                                       ifelse(product_data18$salt >= 0.7,3,
-                                                                              ifelse(product_data18$salt >= 0.5,2,
-                                                                                     ifelse(product_data18$salt >= 0.2,1,0)
+product_data18$A_salt. <- ifelse(product_data18$salt > 2.3,10,
+                             ifelse(product_data18$salt > 2,9,
+                                    ifelse(product_data18$salt > 1.8,8,
+                                           ifelse(product_data18$salt > 1.6,7,
+                                                  ifelse(product_data18$salt > 1.4,6,
+                                                         ifelse(product_data18$salt > 1.1,5,
+                                                                ifelse(product_data18$salt > 0.9,4,
+                                                                       ifelse(product_data18$salt > 0.7,3,
+                                                                              ifelse(product_data18$salt > 0.5,2,
+                                                                                     ifelse(product_data18$salt > 0.2,1,0)
                                                                               )
                                                                        )
                                                                 )
@@ -281,22 +281,22 @@ product_data18$FVN <- ifelse(product_data18$FVN>100, 100, product_data18$FVN)
 
 # allocate C points for F&V
 product_data18$C_FVN <- NA
-product_data18$C_FVN <- ifelse(product_data18$FVN >= 80,5,
-                            ifelse(product_data18$FVN >= 60,2,
-                                   ifelse(product_data18$FVN >= 40,1,0)
+product_data18$C_FVN <- ifelse(product_data18$FVN > 80,5,
+                            ifelse(product_data18$FVN > 60,2,
+                                   ifelse(product_data18$FVN > 40,1,0)
                             )
 )
 
 # allocate points for AOAC fibre
 product_data18$C_FIB <- NA
-product_data18$C_FIB <- ifelse(product_data18$AOACFIB >= 5.8,8,
-                             ifelse(product_data18$AOACFIB >= 5,7,
-                                    ifelse(product_data18$AOACFIB >= 4.3,6,
-                                           ifelse(product_data18$AOACFIB >= 3.6,5,
-                                                  ifelse(product_data18$AOACFIB >= 2.9,4,
-                                                         ifelse(product_data18$AOACFIB >= 2.2,3,
-                                                                ifelse(product_data18$AOACFIB >= 1.4,2,
-                                                                       ifelse(product_data18$AOACFIB >- 0.7,1,0)
+product_data18$C_FIB <- ifelse(product_data18$AOACFIB > 5.8,8,
+                             ifelse(product_data18$AOACFIB > 5,7,
+                                    ifelse(product_data18$AOACFIB > 4.3,6,
+                                           ifelse(product_data18$AOACFIB > 3.6,5,
+                                                  ifelse(product_data18$AOACFIB > 2.9,4,
+                                                         ifelse(product_data18$AOACFIB > 2.2,3,
+                                                                ifelse(product_data18$AOACFIB > 1.4,2,
+                                                                       ifelse(product_data18$AOACFIB > 0.7,1,0)
                                                                        )
                                                                 )
                                                          )
@@ -307,11 +307,11 @@ product_data18$C_FIB <- ifelse(product_data18$AOACFIB >= 5.8,8,
 
 # allocate points for protein
 product_data18$C_PRO <- NA
-product_data18$C_PRO <- ifelse(product_data18$PROT >= 8,5,
-                             ifelse(product_data18$PROT >= 6.4,4,
-                                    ifelse(product_data18$PROT >= 4.8,3,
-                                           ifelse(product_data18$PROT >= 3.2,2,
-                                                  ifelse(product_data18$PROT >- 1.6,1,0)
+product_data18$C_PRO <- ifelse(product_data18$PROT > 8,5,
+                             ifelse(product_data18$PROT > 6.4,4,
+                                    ifelse(product_data18$PROT > 4.8,3,
+                                           ifelse(product_data18$PROT > 3.2,2,
+                                                  ifelse(product_data18$PROT > 1.6,1,0)
                                            )
                                     )
                              )
